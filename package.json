@@ -1,5 +1,5 @@
 {
-  "name": "pushcode.trmx.in",
+  "name": "@trmx/pushcode.trmx.in",
   "version": "1.0.0",
   "description": "A React Native library for simple calculations.",
   "main": "lib/commonjs/index.js",
