@@ -2,12 +2,21 @@
   "name": "pushcode.trmx.in",
   "version": "1.0.0",
   "description": "A React Native library for simple calculations.",
-  "main": "src/index.js",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/src/index.d.ts",
+  "react-native": "src/index.js",
+  "source": "src/index",
   "files": [
     "src",
+    "lib",
     "android",
     "ios",
-    "PushCode.podspec"
+    "PushCode.podspec",
+    "!lib/typescript/example",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
   ],
   "repository": {
     "type": "git",
@@ -15,7 +24,10 @@
   },
   "homepage": "https://github.com/trmx-pushcode/react-native-pushcode#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typescript": "tsc --noEmit",
+    "prepare": "bob build",
+    "release": "release-it"
   },
   "keywords": [
     "react-native"
@@ -25,5 +37,17 @@
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
+  },
+  "devDependencies": {
+    "react-native-builder-bob": "^0.40.12"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      "typescript"
+    ]
   }
 }
